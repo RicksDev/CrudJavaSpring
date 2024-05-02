@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/background.css" />
+	<link rel="stylesheet" href="/css/profile.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<header>
+		<a class="container-logo" th:href="@{/projeto/}">
+			<img class="logo" src="/logo-no-bg.png" />
+		</a>
+	</header>
+	<div class="container">
+		<div class="card">
+			<div class="banner"></div>
+			<div class="content">
+				<div class="img-profile">
+					<img src="/mc.png" />
+				</div>
+				<div class="texts">
+					<h3 id="name-profile">Nome</h3>
+					<h5 class="species">Informações</h5>
+					<div class="flex-status">
+						<h4 id="email-profile">
+							Email: <br />
+							teste@gmail.com
+						</h4>
+						<h4 class="gener">
+							<i>Senha: <br />
+								************</i>
+						</h4>
+					</div>
+				</div>
+				<button class="button">
+					Sair
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		var btnExit = document.querySelector(".button")
+		btnExit.addEventListener("click", () => {
+			localStorage.clear();
+			alert('Dados apagados com sucesso!');
+			window.location.href = '/projeto/';
+		})
+
+		// Obtém os dados do userData a partir do localStorage e os converte de volta para um objeto
+		var userDataStored = JSON.parse(localStorage.getItem('userData'));
+		console.log(userDataStored);
+
+		// Verifica se userDataStored não é nulo
+		if (userDataStored) {
+			// Encontra os elementos pelo nome da classe
+			var nomeElemento = document.getElementById('name-profile');
+			var emailElemento = document.getElementById('email-profile');
+	
+			// Define o conteúdo dos elementos com os dados obtidos
+			nomeElemento.innerHTML = userDataStored.nome;
+			emailElemento.innerHTML = `Email: <br /> ${userDataStored.email}`;
+		} else {
+			nomeElemento.innerHTML = "Nome não encontrado...";
+			emailElemento.innerHTML = "Email não encontrado...";
+		}
+	};
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+/* Loading... */
+
+.logo-container {
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.5s ease;
+  background-color: #000000d3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Garante que a logo apareça acima de outros elementos */
+  opacity: 0; /* Inicia com opacidade 0 (invisível) */
+  overflow: hidden;
+  transition: opacity 1s ease-in-out; /* Adiciona uma transição suave */
+}
+
+.show {
+  opacity: 1; /* Altera a opacidade para 1 quando a classe .show é adicionada */
+}
+
+.hide {
+  opacity: 0; /* Altera a opacidade para 0 quando a classe .hide é adicionada */
+  pointer-events: none; /* Impede eventos de clique no elemento quando oculto */
+}
+
+.logo-container img {
+  transform: translate(130%, 50%);
+}

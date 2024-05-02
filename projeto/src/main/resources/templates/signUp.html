@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="/css/signUp.css" />
+	<link rel="stylesheet" href="/css/background.css" />
+
+	<title>Login</title>
+</head>
+
+<body>
+	<header>
+		<a class="container-logo" th:href="@{/projeto/}">
+			<img class="logo" src="/logo-no-bg.png" />
+		</a>
+	</header>
+
+	<div id="form-ui">
+		<form action="" id="form-signUp">
+			<div id="form-body">
+				<div id="welcome-lines">
+					<!--  <div id="welcome-line-1"></div>  -->
+					<div id="welcome-line-1">É um prazer recebé-lô conosco!🔥</div>
+				</div>
+				<div id="input-area">
+					<div class="form-inp">
+						<input name="nome" placeholder="Nome..." type="text" required />
+					</div>
+
+					<div class="form-inp">
+						<input name="email" placeholder="Email..." type="text" required />
+					</div>
+
+					<div class="form-inp">
+						<input class="password" placeholder="Criar Senha..." type="password" />
+					</div>
+
+					<div class="form-inp">
+						<input class="confirmartion-password" placeholder="Confirme sua Senha..." type="password" />
+					</div>
+				</div>
+
+				<div id="create-accontt">
+					Já tem uma conta?<span class="sign-up-link"> <a th:href="@{/projeto/login}">Entrar</a></span>
+				</div>
+				<div id="submit-button-cvr">
+					<button id="submit-button" type="submit">Enviar</button>
+				</div>
+				
+				<div id="bar"></div>
+			</div>
+		</form>
+	</div>
+
+	<div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+</body>
+<script src="/js/script.js"></script>
+<script>
+document.getElementById('form-signUp').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    var nome = document.querySelector('input[name="nome"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var senha = document.querySelector('.password').value;
+    var confirmacaoSenha = document.querySelector('.confirmartion-password').value;
+
+    if (senha != confirmacaoSenha || senha.length < 6 || senha.length > 12) {
+        alert('As senhas não coincidem ou a senha é menor que 6 ou maior que 12 caracteres');
+    } else {
+        var userData = {
+            nome: nome,
+            email: email,
+            senha: senha
+        };
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Limpa os campos
+        document.querySelector('input[name="nome"]').value = '';
+        document.querySelector('input[name="email"]').value = '';
+        document.querySelector('.password').value = '';
+        document.querySelector('.confirmartion-password').value = '';
+
+        // Exibe mensagem de sucesso
+        alert('Cadastro realizado com sucesso!');
+        window.location.href = '/projeto/perfil';
+    }
+
+});
+
+</script>
+
+</html>

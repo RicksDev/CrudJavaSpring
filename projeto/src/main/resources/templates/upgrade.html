@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprar veiculo</title>
+
+    <!-- Import CSS; -->
+    <link rel="stylesheet" href="/css/buy.css" />
+    <link rel="stylesheet" href="/css/background.css" />
+    <link rel="stylesheet" href="/css/effectLoading.css" />
+
+    <!-- Favicon; -->
+    <link
+      rel="shortcut icon"
+      href="https://iuploads.scribblecdn.net/a192d9a2-393f-45af-a7fd-23e99e898089/global/imagelib/jornada/etapas-de-renovacao.png?v=07062022162416"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a class="container-logo" th:href="@{/projeto/}">
+        <img class="logo" src="/logo-no-bg.png" />
+      </a>
+    </header>
+
+    <main class="box">
+      <div class="logo-container">
+        <img src="/logo-no-bg.png" alt="Logo" />
+      </div>
+      <div class="img-box">
+        <img src="/config2.png" />
+      </div>
+      <div class="form-box2">
+        <h2>Atualizando seu carro...</h2>
+        <!-- <p>Já é um membro? <a href="#"> Login </a></p> -->
+
+        <form
+          th:action="@{/projeto/atualizar}"
+          method="POST"
+          id="projetoForm"
+          th:object="${projeto}"
+        >
+          <div>
+            <div><label for="id">Id:</label></div>
+            <div class="input-group">
+              <input type="text" th:field="*{id}" class="id" readonly />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="veiculo">Veículo</label>
+            <select th:field="*{veiculo}" name="veiculo" id="veiculo">
+              <option value="null">Selecionar Veículo</option>
+              <option value="rs6">Audi RS6</option>
+              <option value="Porsche">Porsche 911 GT3</option>
+              <option value="audi">Audi R8</option>
+              <option value="toyota">Supra Mk5</option>
+              <option value="nissan">Skyline R34</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="cor">Cor</label>
+            <select th:field="*{cor}" name="cor" id="cor">
+              <option value="null">Selecionar cor do veículo</option>
+              <option value="branco">Branco</option>
+              <option value="preto">Preto</option>
+              <option value="nardo">Nardo grey</option>
+              <option value="prata">Prata</option>
+              <option value="vermelho">Vermelho</option>
+              <option value="amarelo">Amarelo</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="valor">Valor</label>
+            <input name="valor" id="valor" type="text" />
+          </div>
+
+          <div class="input-group w50">
+            <label for="metPag">Método de Pag.</label>
+            <select th:field="*{metPag}" name="metPag" id="metPag">
+              <option value="null">Selecionar método de pagamento</option>
+              <option value="pix">Pix</option>
+              <option value="debito">Cartão de débito</option>
+              <option value="credito">Cartão de crédito</option>
+              <option value="cheque">Cheque</option>
+            </select>
+          </div>
+
+          <div class="input-group w50 codePromotion">
+            <label for="codPromo">Código do desconto</label>
+            <input
+              th:field="*{codPromo}"
+              type="text"
+              name="codPromo"
+              id="codPromo"
+              placeholder="Código de desconto"
+            />
+            <!-- <span id="mensagem-erro">Cupom já reivindicado ou inválido</span> -->
+          </div>
+
+          <div class="input-group btn3">
+            <button type="submit" th:href="@{/projeto/list}" class="btn3">
+              <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                      fill="currentColor"
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <span>Fazer Upgrade</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+  </body>
+  <script src="/js/script.js"></script>
+</html>

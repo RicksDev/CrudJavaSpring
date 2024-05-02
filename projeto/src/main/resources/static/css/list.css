@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+  }
+
+header {
+    width: 100%;
+    background-color: none;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .container-logo {
+    width: 160px;
+  }
+  
+  .logo {
+    margin-left: 40px;
+    width: 100%;
+    object-fit: cover;
+    /* mix-blend-mode: color-dodge; */
+    z-index: -1;
+  }

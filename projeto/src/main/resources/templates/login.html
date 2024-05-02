@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="/css/login.css" />
+	<link rel="stylesheet" href="/css/background.css" />
+
+	<title>Login</title>
+</head>
+
+<body>
+	<header>
+		<a class="container-logo" th:href="@{/projeto/}">
+			<img class="logo" src="/logo-no-bg.png" />
+		</a>
+	</header>
+
+	<div id="form-ui">
+		<form action="" id="form-login">
+			<div id="form-body">
+				<div id="welcome-lines">
+					<!--  <div id="welcome-line-1"></div>  -->
+					<div id="welcome-line-1">
+						Bem vindo(a) de volta! <br />
+						à Top Motors
+					</div>
+				</div>
+				<div id="input-area">
+					<div class="form-inp">
+						<input name="email" placeholder="Endereço de e-mail" type="text" required />
+					</div>
+					<div class="form-inp">
+						<input name="senha" placeholder="Senha" type="password" required />
+					</div>
+				</div>
+				<div id="create-accontt">
+					Não tem uma conta?<span class="sign-up-link"> <a th:href="@{/projeto/cadastrar}">
+							Cadastrar</a></span>
+				</div>
+				<div id="submit-button-cvr">
+					<a th:href="@{/projeto/profile}">
+						<button id="submit-button" type="submit">Entrar</button>
+					</a>
+				</div>
+				<div id="forgot-pass">
+					<a href="#">Esqueceu a senha?</a>
+				</div>
+				<div id="bar"></div>
+			</div>
+		</form>
+	</div>
+
+	<div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+		<div class="wave"></div>
+	</div>
+</body>
+<script src="/js/script.js"></script>
+<script>
+	document.getElementById('form-login').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    var email = document.querySelector('input[name="email"]').value;
+    var senha = document.querySelector('input[name="senha"]').value;
+
+    var userData = JSON.parse(localStorage.getItem('userData'));
+
+    if (!email || !senha) {
+        alert('Por favor, preencha todos os campos.');
+    } else if (userData && userData.email === email && userData.senha === senha) {
+        alert('Login realizado com sucesso!');
+        window.location.href = '/projeto/perfil';
+    } else {
+        alert('Email ou senha incorretos. Por favor, tente novamente.');
+        return;
+    }
+
+});
+	</script>
+
+</html>

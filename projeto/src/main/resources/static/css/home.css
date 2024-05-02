@@ -1,0 +1,286 @@
+@charset "ISO-8859-1";
+
+/* GLOBAL Settings */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background-color: rgba(255, 0, 0, 0.103);
+}
+
+/* Header; */
+
+header {
+  width: 100%;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-logo {
+  width: 160px;
+}
+
+.logo {
+  margin-left: 40px;
+  width: 100%;
+  object-fit: cover;
+  /* mix-blend-mode: color-dodge; */
+}
+
+.navbar {
+  transform: translateX(-10%);
+}
+
+.listNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listNavbar li {
+  margin: 0 30px;
+  transform: translateY(100%);
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.listNavbar li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+}
+
+.listNavbar li:hover {
+  color: red;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.listNavbar li::after {
+  content: " ";
+  width: 0%;
+  height: 4px;
+
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  bottom: -10px;
+
+  background-color: #000;
+  transition: 0.5s ease-in-out;
+}
+
+.listNavbar li:hover::after {
+  width: 110%;
+}
+
+.listNavbar li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* credits to uiverse.io/profile/eirikvold */
+.btn-login {
+  transform: translate(-80%, 5%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+}
+
+.btn-login img {
+  transform: translate(-30%, -5%);
+}
+
+.btn-login span {
+  transform: translate(15%, 10%);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Body of page */
+
+/* END Loading */
+
+.container2 {
+  width: 100%;
+  position: relative;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 400px;
+  margin: auto;
+  margin-top: 180px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #000000;
+  z-index: 10;
+}
+
+.item {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  /* Adicionando position relative para que o botão fique relativo ao item */
+}
+
+.botao {
+  position: absolute;
+  /* Posicionando o botão absolutamente dentro do item */
+  bottom: 20px;
+  /* Posicionamento do botão a partir da parte inferior */
+  left: 50%;
+  /* Posicionamento do botão a partir da esquerda */
+  transform: translateX(-50%);
+  /* Para centralizar horizontalmente */
+  padding: 10px 20px;
+  /* Adapte o tamanho do padding conforme necessário */
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #a70a0a;
+}
+
+.item:nth-child(1) {
+  background-image: url("https://s2-autoesporte.glbimg.com/20YZbeBGPheETZH1ecwP390ocNQ=/0x0:1980x1230/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/A/9/Dj5A32QNecX95FBZCvJQ/nova-audi-rs6-avant-performance-frente.jpg");
+}
+
+.item:nth-child(2) {
+  background-image: url("https://www.razaoautomovel.com/wp-content/uploads/2022/08/Porsche-911-GT3-RS-2022-14-scaled_925x520_acf_cropped.jpeg");
+}
+
+.item:nth-child(3) {
+  background-image: url("https://cdn.motor1.com/images/mgl/xqZoAk/s1/2023-audi-r8-v10-gt-rwd.jpg");
+}
+
+.item:nth-child(4) {
+  background-image: url("https://performancespeedshop.com/cdn/shop/products/robot-craftsman-hyperion-narrow-body-package-for-toyota-gr-supra-mk5-a90-a91-588987_1024x1024.jpg?v=1695751257");
+}
+
+.item:nth-child(5) {
+  background-image: url("https://www.carscoops.com/wp-content/uploads/2023/06/Nissan-Skyline-GT-R-R34-255.jpg");
+}
+
+.item {
+  background-position: center;
+  background-size: cover;
+  transition: flex 0.8s ease;
+}
+
+.item:hover {
+  flex: 5;
+  cursor: pointer;
+}
+
+/* Estilos padrão */
+
+/* Media query para dispositivos menores que 768px (tablets em modo retrato e smartphones em modo paisagem) */
+@media (max-width: 767px) {
+  .navbar ul {
+    margin-left: 0;
+    /* Redefine a margem esquerda */
+  }
+
+  .navbar li {
+    margin-left: 20px;
+    /* Redefine a margem esquerda */
+  }
+
+  .botao1 {
+    margin-right: 10px;
+    /* Redefine a margem direita */
+  }
+}
+
+/* Media query para dispositivos menores que 576px (smartphones em modo retrato) */
+@media (max-width: 575px) {
+  .navbar {
+    flex-direction: column;
+    /* Altera a direção do flex para coluna */
+    align-items: center;
+    /* Centraliza os itens verticalmente */
+  }
+
+  .navbar ul {
+    margin-left: 0;
+    /* Redefine a margem esquerda */
+  }
+
+  .navbar li {
+    margin-left: 0;
+    /* Redefine a margem esquerda */
+    margin-bottom: 10px;
+    /* Adiciona espaçamento entre os itens */
+  }
+
+  .botao1 {
+    margin-right: 0;
+    /* Redefine a margem direita */
+    margin-top: 10px;
+    /* Adiciona espaçamento acima do botão */
+  }
+}
+
+.carbutton {
+  width: 200px;
+  height: 70px;
+  padding: 20px;
+  background: #212121;
+  border: 6px double #e8e8e8;
+  transition: 0.2s;
+  margin-left: 45%;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.caption {
+  color: #e8e8e8;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  transition: 0.2s;
+  padding-bottom: -100px;
+}
+
+.comprar {
+  text-decoration: none;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.car {
+  fill: #e8e8e8;
+  width: 80px;
+  height: 80px;
+  margin-left: -100px;
+  margin-top: -45px;
+  transition: 0.2s ease-in-out;
+}
+
+.carbutton:not(:hover) .car {
+  opacity: 0%;
+  transform: translateX(-150px);
+}
+
+.carbutton:hover .caption {
+  opacity: 0%;
+}
+
+.carbutton:focus .car {
+  transform: translateX(120px);
+}
